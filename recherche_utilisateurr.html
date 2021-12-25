@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.rtl.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.rtl.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.rtl.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.rtl.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.rtl.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.rtl.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-utilities.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-utilities.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-utilities.rtl.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-utilities.rtl.min.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<script src="bootstrap/js/jquery.js"></script>
+</head>
+<body background="picture.png">
+<div class="container">
+<b><h1>Recherchez a un l'utilisateur par son Nom ou sa numéro ou son E-mail</h1><b><br><br><br><br>
+
+<form method="POST" action="recherche_utilisateur.php">
+<label>Le champs recherchée:</label>
+<input type="text" id="email" class="form-control form-control-sm" name="eml" oninput="validate()" required placeholder="voter référance de récherche..."><br><br>
+<span id='email_manquant'></span>
+
+<br><br>
+<button type="submit" class="btn btn-primary mb-2" id="validate" name="rechercher" onclick="validate()" >CHERCHER</button>
+<script>
+function validateEmail(email) {
+        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+      }
+      
+      function validate() {
+        const $result = $("#result");
+        const email = $("#email").val();
+        $result.text("");
+      
+        if (validateEmail(email)) {
+          //$result.text(email + " valide :)");
+          document.getElementById('email').style.color ="green";
+         
+          email.css("color", "green");
+        } else {
+          $result.text("Cette Email n'est pas valider!!");
+          $result.css("color", "red");
+        }
+        return false;
+      }
+      
+     $("#validate").on("click", validate);
+        
+ validateForm = function () {
+    return validate();
+}
+
+
+
+
+</body>
+</html>
